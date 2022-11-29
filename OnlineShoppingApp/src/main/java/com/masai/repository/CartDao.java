@@ -8,6 +8,6 @@ import com.masai.model.Cart;
 @Repository
 public interface CartDao extends JpaRepository<Cart, Integer> {
 
-//	public void deleteByName(String productName);
+
 
 }

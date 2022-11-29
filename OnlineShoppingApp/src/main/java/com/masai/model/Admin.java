@@ -4,9 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.UniqueElements;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,7 +36,8 @@ public class Admin {
 	private String lastName;
 	
 	@NotNull
-	@Pattern(regexp="[6-9]{1}[0-9]{9}", message = "Mobile number must be in proper format.")
+	@Pattern(regexp="[6-9]{1}[0-9]{9}", message = "Mobile number must have 10 digit format.")
+	@UniqueElements
 	private String mobile;
 
 

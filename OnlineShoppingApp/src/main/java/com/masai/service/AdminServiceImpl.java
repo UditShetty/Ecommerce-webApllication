@@ -24,7 +24,7 @@ public class AdminServiceImpl  implements AdminService{
 	private CustomerDao customerDAO;
 	
 	@Autowired
-	private GetCurrentLoginAdminSessionDetailsImpl getCurrentLoginUser;
+	private GetCurrentLoginAdminSessionDetailsImpl getCurrentLogin;
 
 	@Override
 	public Admin registerAdmin(Admin admin) {
@@ -40,9 +40,9 @@ public class AdminServiceImpl  implements AdminService{
 
 	@Override
 	public Admin updateAdmin(Admin admin, String key) {
-		Admin customer2 = getCurrentLoginUser.getCurrentAdmin(key);	
+		Admin updateadmin = getCurrentLogin.getCurrentAdmin(key);	
 		
-		if(customer2.getMobile().equals(admin.getMobile()))
+		if(updateadmin.getMobile().equals(admin.getMobile()))
 		{
 			adminDAO.save(admin);
 			return admin;
@@ -54,14 +54,14 @@ public class AdminServiceImpl  implements AdminService{
 
 	@Override
 	public Admin deleteAdmin(String key) {
-		Admin admin = getCurrentLoginUser.getCurrentAdmin(key);		
+		Admin admin = getCurrentLogin.getCurrentAdmin(key);		
 		adminDAO.delete(admin);
 		return admin;
 	}
 
 	@Override
 	public Admin getAdminDetails(String key) {
-		Admin admin = getCurrentLoginUser.getCurrentAdmin(key);	
+		Admin admin = getCurrentLogin.getCurrentAdmin(key);	
 		System.out.println(admin);
 		return admin;
 	}
@@ -76,7 +76,7 @@ public class AdminServiceImpl  implements AdminService{
 	
 	@Override
 	public List<Customer> getCustomers(String key) {
-		Admin admin = getCurrentLoginUser.getCurrentAdmin(key);	
+		Admin admin = getCurrentLogin.getCurrentAdmin(key);	
 		if(admin!=null)
 		{
 			List<Customer> customers = customerDAO.findAll();
@@ -95,7 +95,7 @@ public class AdminServiceImpl  implements AdminService{
 
 	@Override
 	public Customer getCustomerByMobile(String mobile, String key) {
-		Admin admin = getCurrentLoginUser.getCurrentAdmin(key);	
+		Admin admin = getCurrentLogin.getCurrentAdmin(key);	
 		if(admin!=null)
 		{
 			Customer customer = customerDAO.findByMobile(mobile);
