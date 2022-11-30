@@ -3,6 +3,7 @@ package com.masai.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,7 +30,7 @@ public class AdminLoginController {
 	}
 	
 	// for user Logout
-	@PatchMapping(value = "/logout")
+	@DeleteMapping(value = "/logout")
 	public String logOutAdminHandler(@RequestParam(required = false) String key) {
 		return adminLogIn.logOutFromAccount(key);
 	}

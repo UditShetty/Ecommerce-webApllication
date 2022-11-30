@@ -16,106 +16,14 @@ public class GlobalExceptionHandler {
 
 	
 	
-        	//-------------------------------------------------------------------------//
-			//									LOGIN EXCEPTIONS
-			//-------------------------------------------------------------------------//
-			@ExceptionHandler(LoginException.class)
-			public ResponseEntity<MyErrorDetails> loginHandler(LoginException e, WebRequest wr) {
-				
-				MyErrorDetails err = new MyErrorDetails(LocalDateTime.now(), e.getMessage(),wr.getDescription(false));
-				
-				return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
-			}
-	
-	
-	
-			
-			
-	
-	
-	
-	    //-------------------------------------------------------------------------//
-		//									ADMIN EXCEPTIONS
-		//-------------------------------------------------------------------------//
-		@ExceptionHandler(AdminException.class)
-		public ResponseEntity<MyErrorDetails> adminrHandler(AdminException e, WebRequest wr) {
-			
-			MyErrorDetails err = new MyErrorDetails(LocalDateTime.now(), e.getMessage(),wr.getDescription(false));
-			
-			return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
-		}
-		
-	
-		
-		
-	
-		
-		
-		//-------------------------------------------------------------------------//
-		//									CUSTOMER EXCEPTIONS
-		//-------------------------------------------------------------------------//	
-		
-		@ExceptionHandler(CustomerException.class)
-		public ResponseEntity<MyErrorDetails> customerHandler(CustomerException e, WebRequest wr) {
-			
-            MyErrorDetails err = new MyErrorDetails(LocalDateTime.now(), e.getMessage(),wr.getDescription(false));
-			
-			return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
-		}
-		
-		
-		
-	       //-------------------------------------------------------------------------//
-		 		//									PRODUCT EXCEPTIONS
-		 		//-------------------------------------------------------------------------//
-		 		@ExceptionHandler(ProductException.class)
-		 		public ResponseEntity<MyErrorDetails> productHandler(ProductException e, WebRequest wr) {
-		 			
-		 			MyErrorDetails err = new MyErrorDetails(LocalDateTime.now(), e.getMessage(),wr.getDescription(false));
-		 			
-		 			return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
-		 		}
-		 		
-		 		
-		 		
-		 		
-		 		
-		 		
-		 		
-		 		//-------------------------------------------------------------------------//
-		 		//									ADDRESS EXCEPTIONS
-		 		//-------------------------------------------------------------------------//
-		 		@ExceptionHandler(AddressException.class)
-		 		public ResponseEntity<MyErrorDetails> productHandler(AddressException e, WebRequest wr) {
-		 			
-		 			MyErrorDetails err = new MyErrorDetails(LocalDateTime.now(), e.getMessage(),wr.getDescription(false));
-		 			
-		 			return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
-		 		}
-		 		
-	
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		   
-	   
 	   //-------------------------------------------------------------------------//
-	   //								GLOBAL EXCEPTIONS
+	   //								GLOBAL EXCEPTIONS						  //
 	   //-------------------------------------------------------------------------//
 
+ //	if any logical error happens than this exception will be thrown.
 
-    //	if any logical error happens than this exception will be thrown.
-
-	@ExceptionHandler(Exception.class)
-	public ResponseEntity<MyErrorDetails> logicalHandler(Exception e, WebRequest wr){
+		@ExceptionHandler(Exception.class)
+		public ResponseEntity<MyErrorDetails> logicalHandler(Exception e, WebRequest wr){
 	
 		System.out.println("Inside the Exception Handler...");
 		
@@ -123,21 +31,19 @@ public class GlobalExceptionHandler {
 		
 		return new ResponseEntity<>(err,HttpStatus.BAD_REQUEST);
 			
-    }
+ }
 
-	
-	
 	
 
 	   //-------------------------------------------------------------------------//
-	   //								WRONG URI EXCEPTIONS
+	   //								WRONG URI EXCEPTIONS					  //
 	   //-------------------------------------------------------------------------//
 	
 	
-    //	if user passes wrong uri than this exception will be thrown automatically by spring boot
+ //	if user passes wrong uri than this exception will be thrown automatically by spring boot
 	
-	   @ExceptionHandler(NoHandlerFoundException.class)
-    public ResponseEntity<MyErrorDetails> wrongApiHandler(NoHandlerFoundException e, WebRequest wr){
+	   	  @ExceptionHandler(NoHandlerFoundException.class)
+	   	  public ResponseEntity<MyErrorDetails> wrongApiHandler(NoHandlerFoundException e, WebRequest wr){
 		
 		  System.out.println("Inside the NoHandlerFoundException Handler...");
 		
@@ -155,10 +61,10 @@ public class GlobalExceptionHandler {
 	
 	
 	
-   //	if user don't pass right argument than this exception will be thrown....
+//	if user don't pass right argument than this exception will be thrown....
 	
-	   @ExceptionHandler(MethodArgumentNotValidException.class)
-	   public ResponseEntity<MyErrorDetails> methodHandler(MethodArgumentNotValidException ie,WebRequest req) {
+	   		@ExceptionHandler(MethodArgumentNotValidException.class)
+	   		public ResponseEntity<MyErrorDetails> methodHandler(MethodArgumentNotValidException ie,WebRequest req) {
 		
 			System.out.println("inside MethodArgumentNotValidException Handler...");
 			
@@ -170,8 +76,81 @@ public class GlobalExceptionHandler {
 	    }
 	   
 	   
+	    //-------------------------------------------------------------------------//
+		//									ADDRESS EXCEPTIONS
+		//-------------------------------------------------------------------------//
+	   		@ExceptionHandler(AddressException.class)
+			public ResponseEntity<MyErrorDetails> productHandler(AddressException e, WebRequest wr) {
+			
+			MyErrorDetails err = new MyErrorDetails(LocalDateTime.now(), e.getMessage(),wr.getDescription(false));
+			
+			return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
+		}
+		
 
+				//-------------------------------------------------------------------------//
+				//									ADMIN EXCEPTIONS
+				//-------------------------------------------------------------------------//
+				@ExceptionHandler(AdminException.class)
+				public ResponseEntity<MyErrorDetails> adminrHandler(AdminException e, WebRequest wr) {
+					
+					MyErrorDetails err = new MyErrorDetails(LocalDateTime.now(), e.getMessage(),wr.getDescription(false));
+					
+					return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
+				}
+				
+				
+				
+				//-------------------------------------------------------------------------//
+				//									CUSTOMER EXCEPTIONS
+				//-------------------------------------------------------------------------//	
+				
+				@ExceptionHandler(CustomerException.class)
+				public ResponseEntity<MyErrorDetails> customerHandler(CustomerException e, WebRequest wr) {
+					
+		            MyErrorDetails err = new MyErrorDetails(LocalDateTime.now(), e.getMessage(),wr.getDescription(false));
+					
+					return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
+				}
+				
+			   
+				//-------------------------------------------------------------------------//
+		 		//									PRODUCT EXCEPTIONS
+		 		//-------------------------------------------------------------------------//
+		 		@ExceptionHandler(ProductException.class)
+		 		public ResponseEntity<MyErrorDetails> productHandler(ProductException e, WebRequest wr) {
+		 			
+		 			MyErrorDetails err = new MyErrorDetails(LocalDateTime.now(), e.getMessage(),wr.getDescription(false));
+		 			
+		 			return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
+		 		}
+		 		
+		 		
+        	//-------------------------------------------------------------------------//
+			//									LOGIN EXCEPTIONS
+			//-------------------------------------------------------------------------//
+			@ExceptionHandler(LoginException.class)
+			public ResponseEntity<MyErrorDetails> loginHandler(LoginException e, WebRequest wr) {
+				
+				MyErrorDetails err = new MyErrorDetails(LocalDateTime.now(), e.getMessage(),wr.getDescription(false));
+				
+				return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
+			}
+	
+	
+	
+	    	
+		
+				
+		 		
+		 		
+		 		
+		 		
+		 		
+		 		
+		 		
 	   
+	  
 	   
 	   
 	   

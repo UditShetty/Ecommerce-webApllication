@@ -37,7 +37,7 @@ public class CustomerController {
 	
 	
 	@PostMapping("/cart/{productName}/{quantity}/")
-	public ResponseEntity<String> addProductToCartHandler(@PathVariable("productName") String productName,
+	public ResponseEntity<String> registerProductToCartHandler(@PathVariable("productName") String productName,
 															@PathVariable("quantity") Integer quantity,
 												            @RequestParam(required = false) String key){
 		
