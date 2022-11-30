@@ -1,5 +1,10 @@
 
 # Online-E-Commerce-Web-Application
+<p align="center">
+<img width="800" height="400" src="https://static.vecteezy.com/system/resources/thumbnails/002/216/694/small/shopping-trendy-banner-vector.jpg">
+</p>
+<br>
+
 
 # Details : 🔭
 I have created REST API for Online E-Commerce Web Application which can be used by Admin and Customers to login into their profile, update their details and order products.
@@ -12,7 +17,7 @@ We have implemented data and user validation at every step, for every user.
 
 It has all the basic facilities that are required by an end user to have a convenient and hassle free Online E-Commerce web Experience.
 
-
+<br>
 
 > # *** Installation and Run ***
 -  You can clone this repo and start the serve on localhost
@@ -41,7 +46,8 @@ It has all the basic facilities that are required by an end user to have a conve
 <br>
 
 ## ER Diagram
-![UML Diagram1](https://user-images.githubusercontent.com/101566228/184973861-3a0d1ef2-f9b6-44fd-9ddc-978127509434.jpg)
+![ER diagram](https://user-images.githubusercontent.com/101566760/204717998-c039ba8c-4fe1-429a-b2ac-8877f296bf24.png)
+
 
 
 ## Tech Stack
@@ -57,9 +63,7 @@ It has all the basic facilities that are required by an end user to have a conve
 -   Postman
 
 
-## Documentation
 
-[Swagger UI API Documentation Online Shopping App.pdf](https://github.com/premsg1610/Online-Shopping-App-/files/9387667/Swagger.UI.API.Documentation.Online.Shopping.App.pdf)
 
 
 
